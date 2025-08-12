@@ -165,10 +165,10 @@ namespace trading_engine {
 
         // Statistics and monitoring
         struct EngineStats {
-            uint64_t orders_received;
-            uint64_t orders_processed;
-            uint64_t orders_rejected;
-            uint64_t trades_executed;
+            std::uint64_t orders_received;
+            std::uint64_t orders_processed;
+            std::uint64_t orders_rejected;
+            std::uint64_t trades_executed;
             double order_processing_rate;
             double uptime_seconds;
             MarketDataGateway::GatewayStats market_data_stats;
@@ -264,18 +264,20 @@ namespace trading_engine {
 
                 while (engine_running.load(std::memory_order_acquire)) {
                     if (risk_approved_orders.try_pop(order)) {
-                        MEASURE_LATENCY_BLOCK(LatencyProfiler::Order_processing, {
-                                              // Process the order through matching engine
-                                              auto result = matching_engine->process_order(order);
-                                              orders_processed.fetch_add(1, std::memory_order_relaxed);
+                        MEASURE_LATENCY_BLOCK(
+                            LatencyProfiler::Order_processing, {
+                            // Process the order through matching engine
+                            auto result = matching_engine->process_order(order);
+                            orders_processed.fetch_add(1, std::memory_order_relaxed);
 
-                                              // Notify about trades
-                                              for (Trade* trade : result.trades) {
-                                              if (!trade_notifications.try_push(*trade)) {
-                                              // Handle trade notification overflow
-                                              }
-                                              }
-                                              });
+                            // Notify about trades
+                            for (const Trade* trade : result.trades) {
+                                if (!trade_notifications.try_push(*trade)) {
+                                    std::cerr << "Trade notification queue overflow!" << std::endl;
+                                }
+                            }
+                            }
+                        );
                     } else {
                         std::this_thread::yield();
                     }

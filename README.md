@@ -105,8 +105,8 @@ cmake .. -DCMAKE_BUILD_TYPE=Debug
 cmake --build . --target TradingEngine
 
 # Run the trading engine
-./TradingEngine.exe  # Windows
-./TradingEngine      # Linux
+./main.exe  # Windows
+./main      # Linux
 ```
 
 ### Running
